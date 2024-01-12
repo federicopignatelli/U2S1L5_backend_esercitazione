@@ -1,15 +1,13 @@
 package federicopignatelli.U2S1L5_backend_esercitazione;
 
-import federicopignatelli.U2S1L5_backend_esercitazione.DAO.EdificioService;
-import federicopignatelli.U2S1L5_backend_esercitazione.DAO.PostazioneService;
-import federicopignatelli.U2S1L5_backend_esercitazione.DAO.PrenotazioneService;
-import federicopignatelli.U2S1L5_backend_esercitazione.DAO.UtenteService;
+import federicopignatelli.U2S1L5_backend_esercitazione.DAO.*;
 import federicopignatelli.U2S1L5_backend_esercitazione.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 @Component
 public class Runner implements CommandLineRunner {
@@ -18,6 +16,8 @@ public class Runner implements CommandLineRunner {
 
     @Autowired
     PostazioneService postazioneService;
+    @Autowired
+    PostazioneDAO postazioneDAO;
 
     @Autowired
     UtenteService utenteService;
@@ -57,5 +57,15 @@ public class Runner implements CommandLineRunner {
         prenotazioneService.salvaPrenotazione(prenotazione1, postazione2);
         Prenotazione prenotazione2 = new Prenotazione(utente1, LocalDate.of(1998,2,2));
         prenotazioneService.salvaPrenotazione(prenotazione1, postazione3);
+//        Prenotazione prenotazione3 = new Prenotazione(utente1, LocalDate.of(2022,3,6));
+//        prenotazioneService.salvaPrenotazione(prenotazione1, postazione3);
+
+
+//        System.out.println("-------------------- FILTRA TIPO POSTAZIONE ----------------------");
+//        System.out.println("Inserisci il tipo di postazione che vuoi cercare (ad esempio OPENSPACE):");
+//        Scanner scanner = new Scanner(System.in);
+//        String tipoInput = scanner.nextLine();
+//        TipoPostazione tipoPostazione = TipoPostazione.valueOf(tipoInput.toUpperCase());
+//        postazioneDAO.filterByTipoPostazione(tipoPostazione).forEach(System.out::println);
     }
 }
