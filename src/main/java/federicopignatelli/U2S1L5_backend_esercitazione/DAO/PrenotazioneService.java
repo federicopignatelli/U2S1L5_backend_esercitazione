@@ -15,14 +15,12 @@ public class PrenotazioneService {
     private PostazioneDAO postazioneDAO;
 
     public void salvaPrenotazione(Prenotazione prenotazione, Postazione postazione){
-        if (postazione.){
 
+        if (postazione.isLibero()){
         prenotazioneDAO.save(prenotazione);
         System.out.println("Prenotazione salvata nel db");
-
-        postazione.
+        postazione.setLibero(false);
         }
-
         else {
             throw new RuntimeException("la postazione è già occupata");
         }
