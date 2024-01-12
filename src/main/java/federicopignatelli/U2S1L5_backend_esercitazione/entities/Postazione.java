@@ -21,18 +21,18 @@ public class Postazione {
     @Column(name = "Tipo_di_postazione")
     private TipoPostazione tipoPostazione;
     private long maxutenti;
-    public boolean accessibile;
+    public boolean libero = true;
     @ManyToOne
     @JoinColumn(name = "idedificio")
     private Edificio edificio;
     @OneToMany(mappedBy = "postazione")
     private List<Prenotazione> listaprenotazioni;
 
-    public Postazione(String descrizione, TipoPostazione tipoPostazione, long maxutenti, boolean accessibile, Edificio edificio) {
+    public Postazione(String descrizione, TipoPostazione tipoPostazione, long maxutenti, boolean libero, Edificio edificio) {
         this.descrizione = descrizione;
         this.tipoPostazione = tipoPostazione;
         this.maxutenti = maxutenti;
-        this.accessibile = accessibile;
+        this.libero = libero;
         this.edificio = edificio;
     }
 }

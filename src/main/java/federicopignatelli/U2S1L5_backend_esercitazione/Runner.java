@@ -4,13 +4,12 @@ import federicopignatelli.U2S1L5_backend_esercitazione.DAO.EdificioService;
 import federicopignatelli.U2S1L5_backend_esercitazione.DAO.PostazioneService;
 import federicopignatelli.U2S1L5_backend_esercitazione.DAO.PrenotazioneService;
 import federicopignatelli.U2S1L5_backend_esercitazione.DAO.UtenteService;
-import federicopignatelli.U2S1L5_backend_esercitazione.entities.Edificio;
-import federicopignatelli.U2S1L5_backend_esercitazione.entities.Postazione;
-import federicopignatelli.U2S1L5_backend_esercitazione.entities.TipoPostazione;
-import federicopignatelli.U2S1L5_backend_esercitazione.entities.Utente;
+import federicopignatelli.U2S1L5_backend_esercitazione.entities.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
+
+import java.time.LocalDate;
 
 @Component
 public class Runner implements CommandLineRunner {
@@ -54,5 +53,7 @@ public class Runner implements CommandLineRunner {
         utenteService.save(utente3);
         utenteService.save(utente4);
 
+        Prenotazione prenotazione1 = new Prenotazione(utente1, LocalDate.now());
+        prenotazioneService.salvaPrenotazione(prenotazione1, postazione2);
     }
 }

@@ -11,18 +11,20 @@ import org.springframework.stereotype.Service;
 public class PrenotazioneService {
     @Autowired
     private PrenotazioneDAO prenotazioneDAO;
-
     @Autowired
     private PostazioneDAO postazioneDAO;
 
     public void salvaPrenotazione(Prenotazione prenotazione, Postazione postazione){
-        if (postazione.accessibile){
+        if (postazione.){
 
         prenotazioneDAO.save(prenotazione);
         System.out.println("Prenotazione salvata nel db");
-        postazione.setAccessibile(true);
 
+        postazione.
+        }
 
+        else {
+            throw new RuntimeException("la postazione è già occupata");
         }
     }
 }

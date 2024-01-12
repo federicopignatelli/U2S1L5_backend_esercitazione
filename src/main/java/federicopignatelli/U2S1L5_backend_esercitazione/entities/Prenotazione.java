@@ -24,9 +24,9 @@ public class Prenotazione {
     @JoinColumn(name = "postazioneid")
     private Postazione postazione;
 
-    public Prenotazione(Utente utente, LocalDate data, Postazione postazione) {
+    public Prenotazione(Utente utente, LocalDate data) {
         this.utente = utente;
         this.data = data;
-        this.postazione = postazione;
     }
+
 }
